@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <!--配置@Controller注解扫描 -->
+    <context:component-scan base-package="com.chinasofti.postbar.controller"/>
+    <context:component-scan base-package="com.chinasofti.postbar.basic.controller"/>
+
+    <!--注解驱动
+         自动配置最新版的注解的处理映射器和处理适配器
+    -->
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+    <!--配置拦截器 -->
+  <!--  <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"></mvc:mapping>
+            <bean class="com.itqhy.interceptor.Interceptor2"></bean>
+        </mvc:interceptor>
+
+        &lt;!&ndash;拦截请求的路径，要拦截所有就必须设置成  /**  &ndash;&gt;
+        <mvc:interceptor>
+            <mvc:mapping path="/myAccout.action"/>
+         <mvc:mapping path="/product/addCar.action"/>
+            <mvc:mapping path="/product/shopCar.action"/>
+            &lt;!&ndash;指定拦截器的位置 &ndash;&gt;
+            <bean class="com.itqhy.interceptor.Interceptor1"></bean>
+        </mvc:interceptor>
+
+    </mvc:interceptors>-->
+
+    <mvc:resources mapping="*" location="/"/>
+</beans>
